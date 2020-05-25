@@ -1,0 +1,5 @@
+^appveyor\.yml$
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^codecov\.yml$
