@@ -7,7 +7,12 @@
 lx_list_lights(selector = "all", token = get_lifx_token())
 }
 \arguments{
-\item{selector}{which lights to look for?}
+\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
+
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+}
+\value{
+the API response
 }
 \description{
 list available lights

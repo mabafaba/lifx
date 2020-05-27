@@ -7,11 +7,11 @@
 lx_PUT(selector = "all", endpoint, token, ...)
 }
 \arguments{
-\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors}
+\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
 \item{endpoint}{the API endpoint to call; basically the last part of the API url after the light selector}
 
-\item{token}{the API token; see ?lx_auth}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 
 \item{...}{named values to add to the request body}
 }

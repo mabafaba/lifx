@@ -1,13 +1,16 @@
-# set light color
+# lifx light color
+#'
+#' change the state of lifx lamps
+#'
 #' @param hue set the hue (0-255)
 #' @param saturation set the saturation (0-1)
 #' @param brightness set the brightness (0-1)
 #' @param kelvin set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000
-#' @param color_name a color name, hexcode or output from lx_color() (in lifx api format (see https://api.developer.lifx.com/docs/colors). If this parameter is used, other parameters may be ignored.
+#' @param color_name a color name, hexcode or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.
 #' @param infrared infrared brightness (0-1)
 #' @param duration in seconds, how long to perform the transition
-#' @param selector lifx API selector criteria; can be created with lx_select() or written manually
-#' @param fast Execute the query fast, without initial state checks and wait for no results. See https://api.developer.lifx.com/docs/set-state
+#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
+#' @param fast Executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}
 #' @param delta if set to TRUE, color values (hue, saturation, brightness, kelvin, infrared) are added to the lights' current values. Can not be used in combination with `color_name`
 #' @param power string - if set to "on", turns the light on, if set to "off" turns it off.
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
@@ -74,8 +77,9 @@ if(delta){
 
 
 #' check if lifx color name is valid
-#' @param color_string a color string in lifx api format (can be made with lx_color_name() )
+#' @param color_string a color string in lifx api format (can be made with \link{\code{lx_color_name}} )
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @export
 lx_check_color<-function(color_string,token =  get_lifx_token()){
   url <- paste0("https://api.lifx.com/v1/color?string=",utils::URLencode(color_string))
   header<-lx_auth(token)

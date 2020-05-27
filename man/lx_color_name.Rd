@@ -5,17 +5,15 @@
 \title{picking a color by name or hsbk}
 \usage{
 lx_color_name(
-  name = NULL,
   hue = NULL,
   saturation = NULL,
   brightness = NULL,
   kelvin = NULL,
+  name = NULL,
   token = get_lifx_token()
 )
 }
 \arguments{
-\item{name}{a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors). If this parameter is used, all others will be ignored.}
-
 \item{hue}{set the hue (0-255)}
 
 \item{saturation}{set the saturation (0-1)}
@@ -23,6 +21,10 @@ lx_color_name(
 \item{brightness}{set the brightness (0-1)}
 
 \item{kelvin}{set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
+
+\item{name}{a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors). If this parameter is used, all others will be ignored.}
+
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \description{
 picking a color by name or hsbk

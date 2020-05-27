@@ -9,7 +9,7 @@ user_agent <- httr::user_agent("http://github.com/mabafaba/lifx")
 
 
 #' GET request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors
+#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
 #' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
 #' @param token the API token; see ?lx_auth
 lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
@@ -22,7 +22,7 @@ lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
 
 
 #' PUT request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors
+#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
 #' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @param ... named values to add to the request body
@@ -35,7 +35,7 @@ lx_PUT <-function(selector="all",endpoint, token, ...){
 }
 
 #' POST request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors
+#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
 #' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @param ... named values to add to the request body
@@ -101,7 +101,7 @@ print.lifx_api_response <- function(x, ...) {
 #'
 #' #' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system. Once you have your token, you can use `save_lifx_token()` to do that.
 #' How to get a token:
-#' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
+#' 1. go to \url{https://cloud.lifx.com/sign_in} and sign in (if you do not have an account, you must download the mobile app and register there.
 #' 2. generate or look up your access token
 #'
 #' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.
@@ -121,7 +121,7 @@ get_lifx_token <- function() {
 #'
 #' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system.
 #' How to get a token:
-#' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
+#' 1. go to \url{https://cloud.lifx.com/sign_in} and sign in (if you do not have an account, you must download the mobile app and register there.
 #' 2. generate or look up your access token
 #'
 #' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.
@@ -138,7 +138,7 @@ save_lifx_token <- function(token){
 #'
 #' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system. Once you have your token, you can use `save_lifx_token()` to do that.
 #' How to get a token:
-#' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
+#' 1. go to \url{https://cloud.lifx.com/sign_in} and sign in (if you do not have an account, you must download the mobile app and register there.
 #' 2. generate or look up your access token
 #'
 #' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.

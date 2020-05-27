@@ -1,7 +1,12 @@
+
+#' react to lfix api response error codes
+#' @param response the api response received from httr::PUT / POST / GET
+#' @return depending on the status either: an error; a warning and the response as is; the response as is without any message.
+#' @references error messages copied from \url{https://api.developer.lifx.com/docs/errors}
 check_lifx_response<-function(response){
   status<-response$status_code
 
-  # select lifx status code description (https://api.developer.lifx.com/docs/errors)
+  # select lifx status code description (\url{https://api.developer.lifx.com/docs/errors})
   code_meaning <- switch(as.character(status),
                          `200` = c( "OK", "Everything worked as expected", "success"),
                          `202` = c( "Accepted", "For endpoints supporting Fast Mode the request was accepted.", "success"),

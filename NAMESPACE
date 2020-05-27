@@ -2,6 +2,10 @@
 
 S3method(print,lifx_api_response)
 export(has_lifx_token)
+export(lx_check_color)
 export(lx_color)
 export(lx_color_name)
+export(lx_delta)
+export(lx_state)
+export(lx_toggle)
 export(save_lifx_token)

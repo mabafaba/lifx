@@ -39,17 +39,19 @@ lx_selector<-function(
 
 
 #' picking a color by name or hsbk
-#' @param name a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors). If this parameter is used, all others will be ignored.
 #' @param hue set the hue (0-255)
 #' @param saturation set the saturation (0-1)
 #' @param brightness set the brightness (0-1)
 #' @param kelvin set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000
+#' @param name a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors). If this parameter is used, all others will be ignored.
+#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @export
-lx_color_name <- function(name=NULL,
+lx_color_name <- function(
                    hue=NULL,
                    saturation=NULL,
                    brightness=NULL,
                    kelvin=NULL,
+                   name=NULL,
                    token =  get_lifx_token() ){
   if(!is.null(name)){
     lx_check_color(name,token = token)
