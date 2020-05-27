@@ -12,7 +12,7 @@
 
 install via devtools:
 ```{r}
-devtools::github_install("mabafaba/lifx", build_vignettes = TRUE)
+devtools::install_github("mabafaba/lifx", build_vignettes = TRUE)
 ```
 
 Show vignettes / user manual:

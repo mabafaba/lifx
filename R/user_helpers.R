@@ -44,14 +44,15 @@ lx_selector<-function(
 #' @param saturation set the saturation (0-1)
 #' @param brightness set the brightness (0-1)
 #' @param kelvin set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000
-lx_color<-function(name=NULL,
+#' @export
+lx_color_name <- function(name=NULL,
                    hue=NULL,
                    saturation=NULL,
                    brightness=NULL,
                    kelvin=NULL,
                    token =  get_lifx_token() ){
   if(!is.null(name)){
-    check_color(name,token = token)
+    lx_check_color(name,token = token)
     return(name)
   }
 
@@ -61,7 +62,7 @@ lx_color<-function(name=NULL,
   # generate a string of color information as the lifx api expects it (https://api.developer.lifx.com/docs/colors)
   color_string<-paste(names(inputs),":",inputs,collapse = " ",sep="")
   # call api to validate color
-  check_color(color_string,token = token)
+  lx_check_color(color_string,token = token)
   return(color_string)
 
 }

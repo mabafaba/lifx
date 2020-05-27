@@ -24,7 +24,7 @@ lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
 #' PUT request
 #' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors
 #' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
-#' @param token the API token; see ?lx_auth
+#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @param ... named values to add to the request body
 lx_PUT <-function(selector="all",endpoint, token, ...){
   url<-lifx_api_url(selector,endpoint)
@@ -37,7 +37,7 @@ lx_PUT <-function(selector="all",endpoint, token, ...){
 #' POST request
 #' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen" - see https://api.developer.lifx.com/docs/selectors
 #' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
-#' @param token the API token; see ?lx_auth
+#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @param ... named values to add to the request body
 lx_POST <-function(selector="all",endpoint, token, ...){
   url <- lifx_api_url(selector,endpoint)
@@ -86,35 +86,64 @@ as_lifx_api_response<-function(r){
     )
 }
 
+#' @method print lifx_api_response
+#' @export
 print.lifx_api_response <- function(x, ...) {
   cat(crayon::italic(paste(crayon::bold("<LIFX "), x$path, ">\n")))
-  str(x$content)
+  # utils::str(x$content)
   invisible(x)
 }
 
-# getting an api token ------------------------------------------------------
+# api token ------------------------------------------------------
 
 
-#' @details To use the lifx API, you need to get a personal access token from your lifx account.
+#' retrieve lifx_token from R environment
+#'
+#' #' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system. Once you have your token, you can use `save_lifx_token()` to do that.
 #' How to get a token:
 #' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
 #' 2. generate or look up your access token
 #'
-#' Once you have your token, you can use all functions in this package by passing it as the `token`` argument.
-#' Alternatively it is recommended to store the token in your R environment file:
-#' 1. run usethis::edit_r_environ()
-#' 2. in the file that opens, add in a new line `LIFX_TOKEN=your_token` (where your_token is your token, something like 58sdffsodAhF4rfs...)
-#' 3. save and close the file and restart your R session
+#' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.
+#' @seealso \code{\link{has_lifx_token}}, \code{\link{save_lifx_token}}
 #'
-#' Then you run the functions in this package without passing the token every time.
-get_lifx_token <- function(token=NULL) {
-  if(!is.null(token)){return(token)}
-
+get_lifx_token <- function() {
   token <- Sys.getenv('LIFX_TOKEN')
   if (identical(token, "")) {
-    stop("Please provide a lifx token to the function, or add a token to your R environment file as  \"LIFX_TOKEN\". See ?get_lifx_token for details.",
+    stop("Please supply a token or add a token to your R environment file with lifx::save_lifx_token()",
          call. = FALSE)
   }
 
   return(token)
+}
+
+#' save a lifx API token in your r environment file
+#'
+#' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system.
+#' How to get a token:
+#' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
+#' 2. generate or look up your access token
+#'
+#' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.
+#'
+#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @seealso \code{\link{has_lifx_token}}, \code{\link{get_lifx_token}}
+#' @export
+save_lifx_token <- function(token){
+  assertthat::assert_that(assertthat::is.string(token))
+  Sys.setenv(LIFX_TOKEN = token)
+}
+
+#' check whether a lifx api token is stored in the R environment file.
+#'
+#' @details To use the lifx API, you need to get a personal access token from your lifx account. Usually you save API tokens in your r environment file; that way you only have to enter it once per system. Once you have your token, you can use `save_lifx_token()` to do that.
+#' How to get a token:
+#' 1. go to https://cloud.lifx.com/sign_in and sign in (if you do not have an account, you must download the mobile app and register there.
+#' 2. generate or look up your access token
+#'
+#' You do not need to save the token in the environment; you can use all functions in this package by passing a valid `token` argument.
+#' @seealso \code{\link{save_lifx_token}}, \code{\link{get_lifx_token}}
+#'@export
+has_lifx_token<-function(){
+  Sys.getenv("LIFX_TOKEN")!=""
 }

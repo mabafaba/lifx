@@ -1,0 +1,24 @@
+---
+title: "For contributors"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{For contributors}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lifx)
+```
+
+There's three layers to the api:
+1. a user facing function that checks the input and calls (user.R)
+2. a function build to closely mirror the functionality of a particular endpoint of the lifx api, build around (endpoints.R)
+3. a wrapper for the matching http (httr package) verb GET, PUT or POST (httr_wrappers.R)
