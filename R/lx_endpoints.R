@@ -1,8 +1,9 @@
 # generic state modifiers ----------------------------------------------------
 
 #' set light state (lifx API endpoint PUT set state)
+#'
 #' @param power character string - if set to "on", turns the light on, if set to "off" turns it off.
-#' @param color_name a color name, hexcode or output from \lx_color_name() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.
+#' @param color_name a color name, hexcode or output from \code{\link{lx_color_name}} (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.
 #' @param brightness set the brightness (0-1)
 #' @param infrared infrared brightness (0-1)
 #' @param duration in seconds, how long to perform the transition

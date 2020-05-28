@@ -18,7 +18,7 @@ lx_state(
 \arguments{
 \item{power}{character string - if set to "on", turns the light on, if set to "off" turns it off.}
 
-\item{color_name}{a color name, hexcode or output from \lx_color_name() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
+\item{color_name}{a color name, hexcode or output from \code{\link{lx_color_name}} (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
 
 \item{brightness}{set the brightness (0-1)}
 

@@ -50,7 +50,7 @@ lx_color <- function(hue=NULL,
   if(!delta){
   # set the state using 'lx_state' function (which mirrors the lifx api /state endpoint):
   lx_state(power = power,
-           color = color_string,
+           color_name = color_string,
            brightness = brightness,
            infrared = infrared,
            duration = duration,
@@ -65,7 +65,6 @@ if(delta){
                        saturation = saturation,
                        brightness = brightness,
                        kelvin = kelvin,
-
                        duration = duration,
                        infrared = infrared,
                        power = power,
@@ -77,8 +76,8 @@ if(delta){
 
 
 #' check if lifx color name is valid
-#' @param color_string a color string in lifx api format (can be made with \link{\code{lx_color_name}} )
-#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @param color_string a color string in lifx api format (can be made with \code{\link{lx_color_name}} )
+#' @param token API token. If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 #' @export
 lx_check_color<-function(color_string,token =  get_lifx_token()){
   url <- paste0("https://api.lifx.com/v1/color?string=",utils::URLencode(color_string))
