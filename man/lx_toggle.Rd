@@ -11,7 +11,7 @@ lx_toggle(duration = 0, selector = "all", token = get_lifx_token())
 
 \item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
-\item{token}{API token. If left empty, the token is retreived from the environmental variable if available. (see \link{\code{save_lifx_token}})}
+\item{token}{API token. If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \description{
 Toggle light
