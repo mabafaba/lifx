@@ -20,3 +20,9 @@ Show vignettes / user manual:
 ```{r}
 browseVignettes("lifx")
 ```
+
+# Todo
+
+- R cmd check notes/warnings
+- add effect endpoints
+
