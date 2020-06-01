@@ -10,7 +10,7 @@ check_lifx_response<-function(response){
   code_meaning <- switch(as.character(status),
                          `200` = c( "OK", "Everything worked as expected", "success"),
                          `202` = c( "Accepted", "For endpoints supporting Fast Mode the request was accepted.", "success"),
-                         `207` = c( "Multi-Status", "Inspect the response body to check status on individual operations.", "warning"),
+                         `207` = c( "Multi-Status", "Inspect the response body to check status on individual operations.", "success"),
                          `400` = c( "Bad Request", "Request was invalid.", "failure"),
                          `401` = c( "Unauthorized", "Bad access token.", "failure"),
                          `403` = c( "Permission Denied", "Bad OAuth scope.", "failure"),
@@ -26,7 +26,12 @@ check_lifx_response<-function(response){
 
   # return object, throw warning or stop depending on status code:
   if(is.null(code_meaning)){
-    stop(paste("unexpected/unknown API status code:", status))
+    print(response)
+    stop(
+      paste0(
+        paste(status, "unknown API status code (not documented in https://api.developer.lifx.com/docs/errors")
+        )
+      )
   }
 
   if(code_meaning[3]=="success"){
@@ -39,7 +44,13 @@ check_lifx_response<-function(response){
   }
 
   if(code_meaning[3]=="failure"){
-    stop(paste0(status," - ", code_meaning[1], ": ", code_meaning[2]))
+    stop(
+      paste0(
+        paste0(status," - ", code_meaning[1], ": ", code_meaning[2]),
+        "\n",
+        httr::content(response)$error
+        )
+    )
   }
 
   return(invisible(response))

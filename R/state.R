@@ -10,6 +10,7 @@
 #' @param fast if TRUE, executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}
 #' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @return an httr response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/set-state}
 #' @export
 lx_state<-function(power=NULL,
@@ -46,9 +47,9 @@ lx_state<-function(power=NULL,
 #' @param power character string - if set to "on", turns the light on, if set to "off" turns it off.
 #' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
 #' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @return an httr response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/state-delta}
 #' @export
-#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
 lx_delta<-function(hue = NULL,
                    saturation = NULL,
                    brightness=NULL,

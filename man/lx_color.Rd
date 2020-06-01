@@ -12,7 +12,7 @@ lx_color(
   duration = NULL,
   infrared = NULL,
   color_name = NULL,
-  fast = NULL,
+  fast = FALSE,
   delta = FALSE,
   selector = "all",
   power = NULL,
@@ -43,6 +43,9 @@ lx_color(
 \item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
 \item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+}
+\value{
+an httr response object (see \code{\link[httr]{response}})
 }
 \description{
 change the state of lifx lamps

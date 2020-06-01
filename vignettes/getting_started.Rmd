@@ -10,6 +10,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  eval = TRUE,
   comment = "#>"
 )
 ```
@@ -17,3 +18,109 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(lifx)
 ```
+
+## Authentification
+
+To use this package, you need a lifx api token. If you do not have a token, you can to register your lifx account on the mobile app, then log in on the [lifx developer website](https://api.developer.lifx.com/) and retrieve a token there.
+
+Once you have a token, best practice is to save it as an r environmental variable on your system:
+
+```{r, eval = FALSE}
+save_lifx_token(token = "8fuoa4hflf8asufo493jfjlsd842urw0af9sdzfj") # put your token here
+```
+
+You can see the token you saved with `get_lifx_token()`
+Alternatively, you can pass the token as a character string to the `token` argument of the various functions in this package.
+
+
+## List available lights
+
+You can list available lights with:
+
+```{r}
+lx_list_lights()
+```
+
+## Change light color
+
+Change the light color with `lx_color()`. You do not have to provide all arguments, just the things you  want to change:
+
+```{r}
+
+lx_color(hue = 100)
+lx_color(hue = 200,saturation = 0.5,brightness = 1)
+lx_color(kelvin = 5000, power = "on")
+```
+
+By default, this changes all lights at once (see section on selectors chapter below on how to select lights to change)
+The `duration` lets you set how long the duration from the current state to the desired state should take (in seconds).
+Turn the lights to full brightness over a span of 10 seconds:
+
+```{r}
+lx_color(brightness = 1, duration = 10)
+```
+
+The lifx API let's you speed up the light change by omitting some communication with the lamp and not waiting for a response. You can do this with the `fast` argument:
+```{r}
+lx_color(hue = 200, fast = TRUE)
+```
+
+## Relative change
+
+You can change a lights state relative to it's current state by setting the `delta` argument to `TRUE`. For example increase the brightness *by* 0.1:
+```{r}
+lx_color(brightness = 0.1,delta = TRUE)
+```
+
+## Toggle
+
+You can toggle the light (turn on when off and off when on) - a duration for the transition is possible as well
+
+```{r}
+lx_toggle(duration = 4)
+
+```
+
+## Color names
+
+You can provide colors by name (not all r color names are recognised) or hexcode with the `color_name` argument. To set the color to red, you can use any of the following:
+
+```{r}
+lx_color(color_name = "#FF0000")
+lx_color(color_name = "red")
+lx_color(color_name = "#FF0000")
+lx_color(hue = 0, saturation = 1)
+```
+
+the `color_name` argument also accepts strings that combine color names / hexcode and other parameters such as brightness. You can create them with `lx_color_name()`:
+
+```{r}
+my_light_color <- lx_color_name(brightness = 0.2,color_name = "red",saturation = 0.7)
+lx_color(color_name = my_light_color)
+```
+
+## Selectors
+
+By default, functions in this package change all lights at once. You can pick individual lights or groups of lights with `lx_selector()` and passing the result in other functions' `selector` argument:
+
+Example of picking certain lights by their ID, location, :
+```{r}
+lights_to_change <- lx_selector(id = "1234")
+
+lx_color(brightness = 0.6, selector = lights_to_change)
+
+lx_color(color_name = "blue",
+         brightness = 1,
+         power = "on",
+         selector = lx_selector(location = "Home")
+         )
+
+```
+
+
+
+## Effects
+
+## Shorthands
+
+```{}

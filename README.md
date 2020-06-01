@@ -23,6 +23,9 @@ browseVignettes("lifx")
 
 # Todo
 
-- R cmd check notes/warnings
 - add effect endpoints
+- add vignette
+- R cmd check notes/warnings
+- double check api package best practices
+- list of cran best practicse & implement
 

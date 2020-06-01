@@ -4,12 +4,12 @@
 \alias{lx_check_color}
 \title{check if lifx color name is valid}
 \usage{
-lx_check_color(color_string, token = get_lifx_token())
+lx_check_color(color_name, token = get_lifx_token())
 }
 \arguments{
-\item{color_string}{a color string in lifx api format (can be made with \code{\link{lx_color_name}} )}
-
 \item{token}{API token. If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+
+\item{color_string}{a color string in lifx api format (can be made with \code{\link{lx_color_name}} )}
 }
 \description{
 check if lifx color name is valid

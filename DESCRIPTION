@@ -1,11 +1,11 @@
 Package: lifx
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Control Lifx Smart Light Bulbs 
 Version: 0.1.0.9000
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Martin Barner <m@martinbarner.de>
+Maintainer: Martin Barner <m@martinbarner.de>
+Description: Allows you to read and change the state of LIFX smart light bulbs
+    Covers all LIFX API endpoints, including changing light color and brightness, selecting lights by ID, group or location as well as activating effects.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
