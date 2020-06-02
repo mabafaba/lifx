@@ -9,10 +9,9 @@ user_agent <- httr::user_agent("http://github.com/mabafaba/lifx")
 
 
 #' GET request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
-#' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
-#' @param token the API token; see ?lx_auth
-#' @return an httr response object (see \code{\link[httr]{response}})
+#' @template param_selector
+#' @template param_token
+#' @template http_verbs
 lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
   url<-lifx_api_url(selector,endpoint)
   header<-lx_auth(token)
@@ -23,11 +22,10 @@ lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
 
 
 #' PUT request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
-#' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
-#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @template param_selector
+#' @template param_token
+#' @template http_verbs
 #' @param ... named values to add to the request body
-#'@return an httr response object (see \code{\link[httr]{response}})
 lx_PUT <-function(selector="all",endpoint, token, ...){
   url<-lifx_api_url(selector,endpoint)
   header<-lx_auth(token)
@@ -37,11 +35,10 @@ lx_PUT <-function(selector="all",endpoint, token, ...){
 }
 
 #' POST request
-#' @param selector lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}
-#' @param endpoint the API endpoint to call; basically the last part of the API url after the light selector
-#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @template param_selector
+#' @template param_token
+#' @template http_verbs
 #' @param ... named values to add to the request body
-#' @return an httr response object (see \code{\link[httr]{response}})
 lx_POST <-function(selector="all",endpoint, token, ...){
   url <- lifx_api_url(selector,endpoint)
   header<-lx_auth(token)

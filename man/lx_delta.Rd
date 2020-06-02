@@ -29,7 +29,7 @@ lx_delta(
 
 \item{duration}{in seconds, how long to perform the transition}
 
-\item{power}{character string - if set to "on", turns the light on, if set to "off" turns it off.}
+\item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
 \item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 

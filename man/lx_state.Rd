@@ -16,9 +16,9 @@ lx_state(
 )
 }
 \arguments{
-\item{power}{character string - if set to "on", turns the light on, if set to "off" turns it off.}
+\item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
-\item{color_name}{a color name, hexcode or output from \code{\link{lx_color_name}} (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
+\item{color_name}{a color name (i.e. "red"), hexidecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
 
 \item{brightness}{set the brightness (0-1)}
 
@@ -26,7 +26,7 @@ lx_state(
 
 \item{duration}{in seconds, how long to perform the transition}
 
-\item{fast}{if TRUE, executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}}
+\item{fast}{Executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}}
 
 \item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 

@@ -22,7 +22,7 @@ lx_color_name(
 
 \item{kelvin}{set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
 
-\item{color_name}{a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors).}
+\item{color_name}{a color name (i.e. "red"), hexidecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
 
 \item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }

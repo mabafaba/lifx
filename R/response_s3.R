@@ -19,7 +19,7 @@ as_lifx_api_response<-function(r){
 #' @method print lifx_api_response
 #' @export
 print.lifx_api_response <- function(x, ...) {
-  str(x, no.list = T, give.head = F, give.attr = FALSE,indent.str = "  ")
+  utils::str(x, no.list = T, give.head = F, give.attr = FALSE,indent.str = "  ")
   cat(crayon::italic(crayon::silver("lifx api response - status ")))
   print_lifx_response_status(x)
   cat("\n")

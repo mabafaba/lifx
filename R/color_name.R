@@ -3,12 +3,9 @@
 
 
 #' picking a color by name or hsbk
-#' @param hue set the hue (0-255)
-#' @param saturation set the saturation (0-1)
-#' @param brightness set the brightness (0-1)
-#' @param kelvin set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000
-#' @param color_name a color name, hexcode or string in lifx api format (see https://api.developer.lifx.com/docs/colors).
-#' @param token API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})
+#' @template param_colors
+#' @template param_color_name
+#' @template param_token
 #' @export
 lx_color_name <- function(
                    hue=NULL,
@@ -42,3 +39,4 @@ print.lx_color_string <- function(x, ...){
   cat(crayon::italic(x))
   invisible(x)
 }
+

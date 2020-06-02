@@ -41,8 +41,9 @@ lx_selector<-function(
 
 #' @method print lx_selector_string
 #' @export
-print.lx_selector_string <- function(x){
+print.lx_selector_string <- function(x, ...){
   cat(crayon::silver("lx selector:"))
   cat(crayon::italic(x))
   invisible(x)
 }
+
