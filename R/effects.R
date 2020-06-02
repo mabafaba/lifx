@@ -13,10 +13,10 @@
 lx_effect_breathe<-function(
   color,
   from_color = NULL,
-  period=NULL,
-  cycles = NULL,
-  persist = NULL,
-  power_on = NULL,
+  period=1,
+  cycles = 1,
+  persist = FALSE,
+  power_on = TRUE,
   peak = 0.5,
   selector = "all",
   token =  get_lifx_token()
@@ -41,7 +41,7 @@ lx_effect_breathe<-function(
 #'
 #' @param direction Move direction, can be "forward" or "backward".
 #' @param period The time in seconds for one cycle of the effect.
-#' @param cycles The number of times to move the pattern across the device. Special cases are 0 to switch the effect off, and unspecified to continue indefinitely.
+#' @param cycles The number of times to move the pattern across the device. Special cases are 0 to switch the effect off, and unspecified to continue near indefinitely (10^10 times).
 #' @param power_on Switch any selected device that is off to on before performing the effect.
 #' @template param_fast
 #'
@@ -51,7 +51,7 @@ lx_effect_breathe<-function(
 lx_effect_move<-function(
   direction = "forward",
   period=1,
-  cycles = Inf,
+  cycles = 10^10,
   power_on = TRUE,
   fast = FALSE,
 
@@ -72,33 +72,122 @@ lx_effect_move<-function(
 
 
 
-#' #' "Morph" effect
-#' #'
-#' @param palette color The color to use for the breathe effect. use lx_color() as input
-#' @param from_color The color to start the effect from. If this parameter is omitted then the color the bulb is currently set to is used instead.
-#' @param persist boolean; If FALSE set the light back to its previous value when effect ends, if true leave the last effect color.
-#' @param peak Defines where in a period the target color is at its maximum. Minimum 0.0, maximum 1.0.
-#' @export
-#' lx_effect_move<-function(
-#'   direction = "forward",
-#'   period=1,
-#'   cycles = Inf,
-#'   persist = NULL,
-#'   power_on = TRUE,
-#'   fast = FALSE,
-#'   selector = "all",
-#'   token =  get_lifx_token()
-#' ){
+#' "Morph" effect
 #'
-#'   lx_POST(selector,
-#'           endpoint = paste0("effects","/" ,"morph"),
-#'           token = token,
-#'           color = color,
-#'           from_color = from_color,
-#'           period = period,
-#'           cycles = cycles,
-#'           persist = persist,
-#'           power_on = power_on,
-#'           peak = peak,
-#'           fast = fast)
-#' }
+#' @param period This controls how quickly the morph runs. It is measured in seconds. A lower number means the animation is faster
+#' @param duration How long the animation lasts for in seconds. Not specifying a duration makes the animation "never" stop (10^100 cycles). Specifying 0 makes the animation stop. Note that there is a known bug where the tile remains in the animation once it has completed if duration is nonzero.
+#' @param palette array of strings (7 colours across the spectrum). You can control the colors in the animation by specifying a list of color specifiers. See \code{\link{lx_color_name}}
+#' @param power_on if TRUE (default), switch any selected device that is off to on before performing the effect.
+#' @template param_fast
+#' @template param_selector
+#' @template param_token
+#' @export
+lx_effect_morph<-function(
+  period = 5,
+  duration = 10^10,
+  palette,
+  power_on = TRUE,
+  fast = FALSE,
+  selector = "all",
+  token =  get_lifx_token()
+){
+
+  lx_POST(selector,
+          endpoint = paste0("effects","/" ,"morph"),
+          token = token,
+
+          period = period,
+          duration = duration,
+          palette = palette,
+          fast = fast,
+          power_on = power_on)
+}
+
+
+
+
+#' "Morph" effect
+#'
+#' @param period This controls how quickly the flame runs. It is measured in seconds. A lower number means the animation is faster
+#' @param duration How long the animation lasts for in seconds. Not specifying a duration makes the animation never stop. Specifying 0 makes the animation stop. Note that there is a known bug where the tile remains in the animation once it has completed if duration is nonzero.
+#' @param power_on if TRUE (default), switch any selected device that is off to on before performing the effect.
+#' @template param_fast
+#' @template param_selector
+#' @template param_token
+#' @export
+lx_effect_flame<-function(
+  period = 5,
+  duration = 10^10,
+  power_on = TRUE,
+  fast = FALSE,
+  selector = "all",
+  token =  get_lifx_token()
+){
+
+  lx_POST(selector,
+          endpoint = paste0("effects","/" ,"flame"),
+          token = token,
+          period = period,
+          duration = duration,
+          power_on = power_on,
+          fast = fast
+          )
+}
+
+
+#' "Pulse" effect
+#'
+#' @param color The color to use for the pulse effect. use lx_color() as input
+#' @param from_color The color to start the effect from. If this parameter is omitted then the color the bulb is currently set to is used instead.
+#' @param period The time in seconds for one cycle of the effect.
+#' @param cycles The number of times to repeat the effect.
+#' @param persist boolean; If FALSE set the light back to its previous value when effect ends, if true leave the last effect color.
+#' @param power_on If FALSE, does not turn light on if it is off
+#' @template param_selector
+#' @template param_token
+#' @export
+lx_effect_pulse<-function(
+  color,
+  from_color = NULL,
+  period=1,
+  cycles = 1,
+  persist = FALSE,
+  power_on = TRUE,
+  selector = "all",
+  token =  get_lifx_token()
+){
+
+  lx_POST(selector,
+          endpoint = paste0("effects","/" ,"pulse"),
+          token = token,
+          color = color,
+          from_color = from_color,
+          period = period,
+          cycles = cycles,
+          persist = persist,
+          power_on = power_on
+  )
+}
+
+
+
+
+#' Turn effects off
+#'
+#' @param power_off If TRUE, also turns the light(s) off
+#' @template param_selector
+#' @template param_token
+#' @export
+lx_effect_off<-function(
+  power_off = FALSE,
+  selector = "all",
+  token =  get_lifx_token()
+){
+
+  lx_POST(selector,
+          endpoint = paste0("effects","/" ,"off"),
+          token = token,
+          power_off = power_off
+  )
+}
+

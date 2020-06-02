@@ -6,12 +6,12 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-```{r, include = FALSE}
+  
+  ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  eval = FALSE,
-  comment = "#>"
+collapse = TRUE,
+eval = FALSE,
+comment = "#>"
 )
 ```
 
@@ -113,7 +113,7 @@ lx_color(color_name = "blue",
          brightness = 1,
          power = "on",
          selector = lx_selector(location = "Home")
-         )
+)
 
 ```
 
@@ -121,6 +121,49 @@ lx_color(color_name = "blue",
 
 ## Effects
 
-## Shorthands
+Each effect has it's own function:
 
-```{}
+```{r}
+lx_effect_breathe(color = "red",
+                  from_color = "blue",
+                  period = 5,
+                  cycles = 10)
+
+lx_effect_pulse(color = lx_color_name(kelvin = 2500, brightness = 0.6),
+                from_color = lx_color_name(hue = 200,brightness = 0.2, saturation = 0.6),
+                cycles = 5,
+                period = 3)
+lx_effect_flame(selector = lx_selector(id= "1234"))
+
+
+lx_effect_move(direction = "backward")
+```
+
+The "morph" effect expects a color palette that is given as a vector of color strings (that can be created with `lx_color_name`):
+
+```{r}
+lx_effect_morph(duration = 5,
+                palette = c(lx_color_name(200,0.5,0.5),
+                            lx_color_name(100,1,0)
+                )
+)
+```
+
+You can turn off an ongoing effect with:
+```{r}
+lx_effect_off()
+```
+
+## Missing functionality 
+
+Some LIFX api endpoints have not been implemented in this package:
+
+- "set states" (PUT): setting multiple states with one API call
+- "cycle" (POST) cycling through states
+- "list scenes" (GET) Lists all the scenes available in the users account
+- "activate scene" (PUT) Activates a scene from the users account
+
+
+
+
+

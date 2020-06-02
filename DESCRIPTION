@@ -1,7 +1,7 @@
 Package: lifx
 Type: Package
 Title: Control Lifx Smart Light Bulbs 
-Version: 0.1.0.9000
+Version: 0.1.1
 Author: Martin Barner <m@martinbarner.de>
 Maintainer: Martin Barner <m@martinbarner.de>
 Description: Allows you to read and change the state of LIFX smart light bulbs
