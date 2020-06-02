@@ -19,7 +19,7 @@ lx_effect_morph(
 
 \item{duration}{How long the animation lasts for in seconds. Not specifying a duration makes the animation "never" stop (10^100 cycles). Specifying 0 makes the animation stop. Note that there is a known bug where the tile remains in the animation once it has completed if duration is nonzero.}
 
-\item{palette}{array of strings (7 colours across the spectrum). You can control the colors in the animation by specifying a list of color specifiers. See \code{\link{lx_color_name}}}
+\item{palette}{array of strings (7 colors across the spectrum). You can control the colors in the animation by specifying a list of color specifiers. See \code{\link{lx_color_name}}}
 
 \item{power_on}{if TRUE (default), switch any selected device that is off to on before performing the effect.}
 
@@ -27,7 +27,7 @@ lx_effect_morph(
 
 \item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \description{
 "Morph" effect

@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^man-roxygen$
+^cran-comments.md$

@@ -76,7 +76,7 @@ lx_effect_move<-function(
 #'
 #' @param period This controls how quickly the morph runs. It is measured in seconds. A lower number means the animation is faster
 #' @param duration How long the animation lasts for in seconds. Not specifying a duration makes the animation "never" stop (10^100 cycles). Specifying 0 makes the animation stop. Note that there is a known bug where the tile remains in the animation once it has completed if duration is nonzero.
-#' @param palette array of strings (7 colours across the spectrum). You can control the colors in the animation by specifying a list of color specifiers. See \code{\link{lx_color_name}}
+#' @param palette array of strings (7 colors across the spectrum). You can control the colors in the animation by specifying a list of color specifiers. See \code{\link{lx_color_name}}
 #' @param power_on if TRUE (default), switch any selected device that is off to on before performing the effect.
 #' @template param_fast
 #' @template param_selector

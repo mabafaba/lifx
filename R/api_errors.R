@@ -1,5 +1,5 @@
 
-#' react to lfix api response error codes
+#' react to lifx api response error codes
 #' @param response the api response received from httr::PUT / POST / GET
 #' @return depending on the status either: an error; a warning and the response as is; the response as is without any message.
 #' @references error messages copied from \url{https://api.developer.lifx.com/docs/errors}

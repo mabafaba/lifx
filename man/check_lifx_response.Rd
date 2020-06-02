@@ -2,7 +2,7 @@
 % Please edit documentation in R/api_errors.R
 \name{check_lifx_response}
 \alias{check_lifx_response}
-\title{react to lfix api response error codes}
+\title{react to lifx api response error codes}
 \usage{
 check_lifx_response(response)
 }
@@ -13,7 +13,7 @@ check_lifx_response(response)
 depending on the status either: an error; a warning and the response as is; the response as is without any message.
 }
 \description{
-react to lfix api response error codes
+react to lifx api response error codes
 }
 \references{
 error messages copied from \url{https://api.developer.lifx.com/docs/errors}

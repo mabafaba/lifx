@@ -20,11 +20,11 @@ lx_color_name(
 
 \item{brightness}{set the brightness (0-1)}
 
-\item{kelvin}{set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
+\item{kelvin}{set the color temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
 
-\item{color_name}{a color name (i.e. "red"), hexidecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
+\item{color_name}{a color name (i.e. "red"), hexadecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \description{
 picking a color by name or hsbk

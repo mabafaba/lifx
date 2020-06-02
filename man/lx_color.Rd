@@ -26,13 +26,13 @@ lx_color(
 
 \item{brightness}{set the brightness (0-1)}
 
-\item{kelvin}{set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
+\item{kelvin}{set the color temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
 
 \item{duration}{in seconds, how long to perform the transition}
 
 \item{infrared}{infrared brightness (0-1)}
 
-\item{color_name}{a color name (i.e. "red"), hexidecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
+\item{color_name}{a color name (i.e. "red"), hexadecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
 
 \item{fast}{Executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}}
 
@@ -42,7 +42,7 @@ lx_color(
 
 \item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \value{
 an httr response object (see \code{\link[httr]{response}})

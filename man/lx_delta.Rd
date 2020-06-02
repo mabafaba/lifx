@@ -23,7 +23,7 @@ lx_delta(
 
 \item{brightness}{set the brightness (0-1)}
 
-\item{kelvin}{set the colour temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
+\item{kelvin}{set the color temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
 
 \item{infrared}{infrared brightness (0-1)}
 
@@ -33,7 +33,7 @@ lx_delta(
 
 \item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \value{
 an httr response object (see \code{\link[httr]{response}})

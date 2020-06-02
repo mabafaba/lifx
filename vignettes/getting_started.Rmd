@@ -19,7 +19,7 @@ comment = "#>"
 library(lifx)
 ```
 
-## Authentification
+## Authentication
 
 To use this package, you need a lifx api token. If you do not have a token, you can to register your lifx account on the mobile app, then log in on the [lifx developer website](https://api.developer.lifx.com/) and retrieve a token there.
 
@@ -83,7 +83,7 @@ lx_toggle(duration = 4)
 
 ## Color names
 
-You can provide colors by name (not all r color names are recognised) or hexcode with the `color_name` argument. To set the color to red, you can use any of the following:
+You can provide colors by name (not all r color names are recognized) or hexcode with the `color_name` argument. To set the color to red, you can use any of the following:
 
 ```{r}
 lx_color(color_name = "#FF0000")
@@ -154,6 +154,15 @@ You can turn off an ongoing effect with:
 lx_effect_off()
 ```
 
+
+## Rate limit
+
+You can find out the rate limit, how many calls you have left and the unix timestamp of the next rate reset with:
+
+```{r}
+lx_rate_limit()
+
+```
 ## Missing functionality 
 
 Some LIFX api endpoints have not been implemented in this package:
@@ -162,7 +171,7 @@ Some LIFX api endpoints have not been implemented in this package:
 - "cycle" (POST) cycling through states
 - "list scenes" (GET) Lists all the scenes available in the users account
 - "activate scene" (PUT) Activates a scene from the users account
-
+- OAuth access
 
 
 

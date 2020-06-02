@@ -63,7 +63,7 @@ lx_color <- function(hue=NULL,
            selector = selector,
            fast = fast,
            token=token)
-    return(response)
+
 }
 
 if(delta){
@@ -78,6 +78,7 @@ if(delta){
                        selector = selector,
                        token=token)
 }
+  return(invisible(response))
 }
 
 

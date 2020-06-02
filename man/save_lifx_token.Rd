@@ -7,7 +7,7 @@
 save_lifx_token(token)
 }
 \arguments{
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }
 \value{
 logical TRUE if saving token has been successful

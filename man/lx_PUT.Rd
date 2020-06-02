@@ -11,7 +11,7 @@ lx_PUT(selector = "all", endpoint, token, ...)
 
 \item{endpoint}{the API endpoint to call; basically the last part of the API url after the light selector}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retreived from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 
 \item{...}{named values to add to the request body}
 }
