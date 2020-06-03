@@ -1,8 +1,9 @@
-# lifx (development version)
+# lifx 0.2.0
 
-## 0.1.1.9000
+## 0.1.2
 
 - No longer checks api color validity on delta = TRUE ("invalid" values such as negative brightness should be expected)
+- Invisible return
 
 ## 0.1.1
 
