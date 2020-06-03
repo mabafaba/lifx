@@ -6,5 +6,3 @@
 ^man-roxygen$
 ^cran-comments.md$
 ^CRAN-RELEASE$
-^vignettes.*
-
