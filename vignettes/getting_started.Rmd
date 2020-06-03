@@ -15,6 +15,7 @@ comment = "#>"
 )
 ```
 
+
 ```{r setup}
 library(lifx)
 ```
@@ -26,10 +27,10 @@ To use this package, you need a lifx api token. If you do not have a token, you 
 Once you have a token, best practice is to save it as an r environmental variable on your system:
 
 ```{r, eval = FALSE}
-save_lifx_token(token = "8fuoa4hflf8asufo493jfjlsd842urw0af9sdzfj") # put your token here
+lx_save_token(token = "8fuoa4hflf8asufo493jfjlsd842urw0af9sdzfj") # put your token here
 ```
 
-You can see the token you saved with `get_lifx_token()`
+You can see the token you saved with `lx_get_token()`
 Alternatively, you can pass the token as a character string to the `token` argument of the various functions in this package.
 
 
@@ -172,7 +173,6 @@ Some LIFX api endpoints have not been implemented in this package:
 - "list scenes" (GET) Lists all the scenes available in the users account
 - "activate scene" (PUT) Activates a scene from the users account
 - OAuth access
-
 
 
 

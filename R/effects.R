@@ -19,7 +19,7 @@ lx_effect_breathe<-function(
   power_on = TRUE,
   peak = 0.5,
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,
@@ -56,7 +56,7 @@ lx_effect_move<-function(
   fast = FALSE,
 
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,
@@ -89,7 +89,7 @@ lx_effect_morph<-function(
   power_on = TRUE,
   fast = FALSE,
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,
@@ -121,7 +121,7 @@ lx_effect_flame<-function(
   power_on = TRUE,
   fast = FALSE,
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,
@@ -154,7 +154,7 @@ lx_effect_pulse<-function(
   persist = FALSE,
   power_on = TRUE,
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,
@@ -181,7 +181,7 @@ lx_effect_pulse<-function(
 lx_effect_off<-function(
   power_off = FALSE,
   selector = "all",
-  token =  get_lifx_token()
+  token =  lx_get_token()
 ){
 
   lx_POST(selector,

@@ -16,7 +16,7 @@ lx_color(
   delta = FALSE,
   selector = "all",
   power = NULL,
-  token = get_lifx_token()
+  token = lx_get_token()
 )
 }
 \arguments{
@@ -42,7 +42,7 @@ lx_color(
 
 \item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
 an httr response object (see \code{\link[httr]{response}})

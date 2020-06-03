@@ -11,7 +11,7 @@ lx_color_name(
   kelvin = NULL,
   color_name = NULL,
   check = TRUE,
-  token = get_lifx_token()
+  token = lx_get_token()
 )
 }
 \arguments{
@@ -27,7 +27,7 @@ lx_color_name(
 
 \item{check}{if FALSE does not call the API to check if the color is valid}
 
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \description{
 picking a color by name or hsbk

@@ -12,7 +12,7 @@ user_agent <- httr::user_agent("http://github.com/mabafaba/lifx")
 #' @template param_selector
 #' @template param_token
 #' @template http_verbs
-lx_GET <- function(selector = "all", endpoint, token = get_lifx_token()) {
+lx_GET <- function(selector = "all", endpoint, token = lx_get_token()) {
     url <- lifx_api_url(selector, endpoint)
     header <- lx_auth(token)
     response <- httr::GET(url, header, user_agent)
@@ -56,7 +56,7 @@ lifx_api_url <- function(selector, endpoint) {
     httr::modify_url("https://api.lifx.com", path = c("v1", "lights", selector, endpoint))
 }
 
-lx_auth <- function(token = get_lifx_token()) {
+lx_auth <- function(token = lx_get_token()) {
     httr::add_headers(Authorization = sprintf("Bearer %s", token))
     
 }

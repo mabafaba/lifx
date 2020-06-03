@@ -5,7 +5,7 @@ Version: 0.2.0
 Author: Martin Barner <m@martinbarner.de>
 Maintainer: Martin Barner <m@martinbarner.de>
 Description: Allows you to read and change the state of LIFX smart light bulbs
-    Covers all LIFX API endpoints, including changing light color and brightness, selecting lights by ID, group or location as well as activating effects.
+    Covers most LIFX API endpoints, including changing light color and brightness, selecting lights by ID, group or location as well as activating effects.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -20,5 +20,6 @@ RoxygenNote: 7.1.0
 Suggests: 
     covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr

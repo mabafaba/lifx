@@ -14,7 +14,7 @@
 #' @return an httr response object (see \code{\link[httr]{response}})
 #' @export
 lx_color <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = NULL, duration = NULL, infrared = NULL, color_name = NULL,
-    fast = FALSE, delta = FALSE, selector = "all", power = NULL, token = get_lifx_token()) {
+    fast = FALSE, delta = FALSE, selector = "all", power = NULL, token = lx_get_token()) {
 
     # check inputs
 

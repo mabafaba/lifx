@@ -8,7 +8,7 @@
 #' @param check if FALSE does not call the API to check if the color is valid
 #' @template param_token
 #' @export
-lx_color_name <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = NULL, color_name = NULL, check = TRUE, token = get_lifx_token()) {
+lx_color_name <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = NULL, color_name = NULL, check = TRUE, token = lx_get_token()) {
 
     inputs <- list(hue, saturation, brightness, kelvin)
     names(inputs) <- c("hue", "saturation", "brightness", "kelvin")
@@ -47,7 +47,7 @@ print.lx_color_string <- function(x, ...) {
 #' @param color_name a color string in lifx api format (can be made with \code{\link{lx_color_name}} )
 #' @template param_token
 #' @export
-lx_check_color <- function(color_name,  token = get_lifx_token()) {
+lx_check_color <- function(color_name,  token = lx_get_token()) {
   url <- paste0("https://api.lifx.com/v1/color?string=", utils::URLencode(color_name))
   header <- lx_auth(token)
   response <- httr::GET(url, header)

@@ -4,10 +4,10 @@
 \alias{lx_rate_limit}
 \title{get lifx API rate limit}
 \usage{
-lx_rate_limit(token = get_lifx_token())
+lx_rate_limit(token = lx_get_token())
 }
 \arguments{
-\item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
+\item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
 a named vector of three numbers:

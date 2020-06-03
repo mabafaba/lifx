@@ -12,7 +12,6 @@
 #' @template param_token
 #' @return an httr response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/set-state}
-#' @export
 lx_state<-function(power=NULL,
                    color_name=NULL,
                    brightness=NULL,
@@ -20,7 +19,7 @@ lx_state<-function(power=NULL,
                    duration=0,
                    fast=FALSE,
                    selector="all",
-                   token =  get_lifx_token()){
+                   token =  lx_get_token()){
 
   response <- lx_PUT(endpoint="state", # expected params
                      selector=selector,    # expected params
@@ -46,7 +45,6 @@ lx_state<-function(power=NULL,
 #' @template param_token
 #' @return an httr response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/state-delta}
-#' @export
 lx_delta<-function(hue = NULL,
                    saturation = NULL,
                    brightness=NULL,
@@ -55,7 +53,7 @@ lx_delta<-function(hue = NULL,
                    duration=0,
                    power=NULL,
                    selector="all",
-                   token =  get_lifx_token() ){
+                   token =  lx_get_token() ){
 
   api_call <- lx_POST
   endpoint <- "state/delta"
