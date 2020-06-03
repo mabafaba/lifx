@@ -10,6 +10,7 @@ lx_color_name(
   brightness = NULL,
   kelvin = NULL,
   color_name = NULL,
+  check = TRUE,
   token = get_lifx_token()
 )
 }
@@ -23,6 +24,8 @@ lx_color_name(
 \item{kelvin}{set the color temperature. limits depend on the specific lamp; limits are likely in the range of 2500-9000}
 
 \item{color_name}{a color name (i.e. "red"), hexadecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.}
+
+\item{check}{if FALSE does not call the API to check if the color is valid}
 
 \item{token}{API token (see ?save_lifx_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{save_lifx_token}})}
 }

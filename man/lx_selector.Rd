@@ -33,5 +33,5 @@ lx_selector(
 use this function to select lights that you want to communicate with
 }
 \details{
-this creates strings to select lamps in the format that the lifx api expects (see https://api.developer.lifx.com/docs/selectors). This function is intended to be used to create a "selector" that is then passed to a function that changes the state of the lamps.
+this creates strings to select lamps in the format that the lifx api expects (see https://api.developer.lifx.com/docs/selectors). This function is intended to be used to create a 'selector' that is then passed to a function that changes the state of the lamps.
 }
