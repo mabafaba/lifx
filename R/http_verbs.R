@@ -5,19 +5,19 @@
 # global variable to let lifx know through which application the call is coming:
 user_agent <- httr::user_agent("http://github.com/mabafaba/lifx")
 
-# GET / PUT / POST  -----------------------------------------------------------------
+# GET / PUT / POST -----------------------------------------------------------------
 
 
 #' GET request
 #' @template param_selector
 #' @template param_token
 #' @template http_verbs
-lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
-  url<-lifx_api_url(selector,endpoint)
-  header<-lx_auth(token)
-  response <- httr::GET(url,header, user_agent)
-  response <- as_lifx_api_response(response)
-  response
+lx_GET <- function(selector = "all", endpoint, token = get_lifx_token()) {
+    url <- lifx_api_url(selector, endpoint)
+    header <- lx_auth(token)
+    response <- httr::GET(url, header, user_agent)
+    response <- as_lifx_api_response(response)
+    response
 }
 
 
@@ -26,12 +26,12 @@ lx_GET <-function(selector="all",endpoint, token = get_lifx_token()){
 #' @template param_token
 #' @template http_verbs
 #' @param ... named values to add to the request body
-lx_PUT <-function(selector="all",endpoint, token, ...){
-  url<-lifx_api_url(selector,endpoint)
-  header<-lx_auth(token)
-  response <- httr::PUT(url,header, body = list(...),encode = "json")
-  response <- as_lifx_api_response(response)
-  invisible(response)
+lx_PUT <- function(selector = "all", endpoint, token, ...) {
+    url <- lifx_api_url(selector, endpoint)
+    header <- lx_auth(token)
+    response <- httr::PUT(url, header, body = list(...), encode = "json")
+    response <- as_lifx_api_response(response)
+    invisible(response)
 }
 
 #' POST request
@@ -39,25 +39,25 @@ lx_PUT <-function(selector="all",endpoint, token, ...){
 #' @template param_token
 #' @template http_verbs
 #' @param ... named values to add to the request body
-lx_POST <-function(selector="all",endpoint, token, ...){
-  url <- lifx_api_url(selector,endpoint)
-  header<-lx_auth(token)
-  response <- httr::POST(url,header,body = list(...),encode = "json")
-  response <- as_lifx_api_response(response)
-  invisible(response)
-
+lx_POST <- function(selector = "all", endpoint, token, ...) {
+    url <- lifx_api_url(selector, endpoint)
+    header <- lx_auth(token)
+    response <- httr::POST(url, header, body = list(...), encode = "json")
+    response <- as_lifx_api_response(response)
+    invisible(response)
+    
 }
 
 
 
 # helpers -----------------------------------------------------------------
 
-lifx_api_url<-function(selector,endpoint){
-  httr::modify_url("https://api.lifx.com",path = c("v1","lights", selector,endpoint))
+lifx_api_url <- function(selector, endpoint) {
+    httr::modify_url("https://api.lifx.com", path = c("v1", "lights", selector, endpoint))
 }
 
-lx_auth <- function(token =  get_lifx_token()){
-  httr::add_headers(Authorization=sprintf("Bearer %s", token))
-
+lx_auth <- function(token = get_lifx_token()) {
+    httr::add_headers(Authorization = sprintf("Bearer %s", token))
+    
 }
 
