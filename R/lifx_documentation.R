@@ -1,10 +1,10 @@
-#' lifx: A package for controlling LIFX smart bulbs
+#' LIFX': A package for controlling 'LIFX' smart bulbs
 #'
-#' The lifx R package is an interface to the [lifx smart bulb api](https://api.developer.lifx.com/docs).
+#' The 'LIFX' R package is an interface to the ['LIFX' smart bulb api](https://api.developer.lifx.com/docs).
 #'
 #'
 #'
-#' @section most important lifx functions:
+#' @section most important 'LIFX' functions:
 #'\itemize{
 #'  \item{ \code{\link{lx_save_token}}}
 #'  \item{ \code{\link{lx_list_lights}}}

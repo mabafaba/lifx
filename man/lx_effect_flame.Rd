@@ -2,7 +2,7 @@
 % Please edit documentation in R/effects.R
 \name{lx_effect_flame}
 \alias{lx_effect_flame}
-\title{"Morph" effect}
+\title{"Flame" effect}
 \usage{
 lx_effect_flame(
   period = 5,
@@ -22,10 +22,18 @@ lx_effect_flame(
 
 \item{fast}{Executes the query fast, without initial state checks and wait for no results. See \url{https://api.developer.lifx.com/docs/set-state}}
 
-\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
+\item{selector}{'LIFX' api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
 \item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
+\value{
+an 'httr' response object (see \code{\link[httr]{response}})
+}
 \description{
-"Morph" effect
+"Flame" effect
+}
+\examples{
+\dontrun{
+lx_effect_flame(period = 2, duration = 3)
+}
 }

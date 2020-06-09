@@ -10,7 +10,7 @@
 #' @template param_fast
 #' @template param_selector
 #' @template param_token
-#' @return an httr response object (see \code{\link[httr]{response}})
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/set-state}
 lx_state<-function(power=NULL,
                    color_name=NULL,
@@ -43,7 +43,7 @@ lx_state<-function(power=NULL,
 #' @template param_power
 #' @template param_selector
 #' @template param_token
-#' @return an httr response object (see \code{\link[httr]{response}})
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @references \url{https://api.developer.lifx.com/docs/state-delta}
 lx_delta<-function(hue = NULL,
                    saturation = NULL,

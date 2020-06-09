@@ -2,7 +2,7 @@
 
 # a lot of this code is following https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html
 
-# global variable to let lifx know through which application the call is coming:
+# global variable to let 'LIFX' know through which application the call is coming:
 user_agent <- httr::user_agent("http://github.com/mabafaba/lifx")
 
 # GET / PUT / POST -----------------------------------------------------------------

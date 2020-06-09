@@ -1,6 +1,6 @@
-# lifx light color
+# 'LIFX' light color
 #'
-#' change the state of lifx lamps
+#' change the state of 'LIFX' lamps
 #'
 #' @template param_colors
 #' @template param_duration
@@ -11,7 +11,16 @@
 #' @template param_selector
 #' @template param_power
 #' @template param_token
-#' @return an httr response object (see \code{\link[httr]{response}})
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
+#' @examples
+#' \dontrun{
+#' lx_color(hue = 200)
+#' lx_color(saturation = 0.8)
+#' lx_color(hue = 200, saturation = 0.5, brightness = 0.5)
+#' lx_color(color_name = 'cyan', brightness = 1)
+#' lx_color(kelvin = 5000, fast = TRUE)
+#' lx_color(brightness = -0.3, delta = TRUE)
+#' }
 #' @export
 lx_color <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = NULL, duration = NULL, infrared = NULL, color_name = NULL,
     fast = FALSE, delta = FALSE, selector = "all", power = NULL, token = lx_get_token()) {
@@ -56,14 +65,14 @@ lx_color <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = 
     }
 
     if (!delta) {
-        # set the state using 'lx_state' function (which mirrors the lifx api /state endpoint):
+        # set the state using 'lx_state' function (which mirrors the 'LIFX' api /state endpoint):
         response <- lx_state(power = power, color_name = color_name, brightness = brightness, infrared = infrared, duration = duration,
             selector = selector, fast = fast, token = token)
 
     }
 
     if (delta) {
-        # set the state using 'lx_state' function (which mirrors the lifx api /state/delta endpoint):
+        # set the state using 'lx_state' function (which mirrors the 'LIFX' api /state/delta endpoint):
         response <- lx_delta(hue = hue, saturation = saturation, brightness = brightness, kelvin = kelvin, duration = duration, infrared = infrared,
             power = power, selector = selector, token = token)
     }

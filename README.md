@@ -2,9 +2,9 @@
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mabafaba/lifx?branch=master&svg=true)](https://ci.appveyor.com/project/mabafaba/lifx)
 [![CRAN status](https://www.r-pkg.org/badges/version/lifx)](https://CRAN.R-project.org/package=lifx)
 
-## lifx R package 
+## 'LIFX' R package 
 
-The lifx R package is an interface to the [lifx smart bulb api](https://api.developer.lifx.com/docs). It lets you view and change your lights' states, for example like this:
+The 'LIFX' R package is an interface to the ['LIFX' smart bulb api](https://api.developer.lifx.com/docs). It lets you view and change your lights' states, for example like this:
 
 ```
 lx_color(hue = 200,saturation = 0.3,brightness = 0.5, )

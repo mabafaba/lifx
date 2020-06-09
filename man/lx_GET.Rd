@@ -7,14 +7,14 @@
 lx_GET(selector = "all", endpoint, token = lx_get_token())
 }
 \arguments{
-\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
+\item{selector}{'LIFX' api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
 \item{endpoint}{the API endpoint to call; basically the last part of the API url after the light selector}
 
 \item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
-an httr response object (see \code{\link[httr]{response}})
+an 'httr' response object (see \code{\link[httr]{response}})
 }
 \description{
 GET request

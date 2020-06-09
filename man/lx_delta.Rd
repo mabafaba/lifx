@@ -31,12 +31,12 @@ lx_delta(
 
 \item{power}{string - if set to "on", turns the light on, if set to "off" turns it off.}
 
-\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
+\item{selector}{'LIFX' api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
 \item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
-an httr response object (see \code{\link[httr]{response}})
+an 'httr' response object (see \code{\link[httr]{response}})
 }
 \description{
 Change light state relative to current state (wrapper for POST state delta

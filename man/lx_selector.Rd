@@ -29,9 +29,18 @@ lx_selector(
 
 \item{zones}{the zones of the lamp(s) to select}
 }
+\value{
+a character string in the format expected by the 'LIFX' API for selectors. It has it's own class and printing style, but a regular character string can be used just as well.
+}
 \description{
 use this function to select lights that you want to communicate with
 }
 \details{
-this creates strings to select lamps in the format that the lifx api expects (see https://api.developer.lifx.com/docs/selectors). This function is intended to be used to create a 'selector' that is then passed to a function that changes the state of the lamps.
+this creates strings to select lamps in the format that the 'LIFX' api expects (see https://api.developer.lifx.com/docs/selectors). This function is intended to be used to create a 'selector' that is then passed to a function that changes the state of the lamps.
+}
+\examples{
+lx_selector(id = '1234')
+lx_selector(label = "my_light")
+lx_selector(location = 'kitchen', zone = 3)
+lx_selector(location = 'kitchen', group = 'ceiling')
 }

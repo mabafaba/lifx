@@ -2,7 +2,7 @@ context("manual - ")
 
 only_test_with_token<-function(expr){
   if(!lx_has_token()){
-    skip(crayon::blue("no lifx api token in renvironment"))
+    skip(crayon::blue("no 'LIFX' api token in renvironment"))
     return(invisible(NULL))
   }
   expr
@@ -13,14 +13,6 @@ user_confirm<-function(expectation){
   result<-FALSE
   if(user_input==""){result<-TRUE}
   expect_true(result,label = " expectation")
-  # if(result){
-  #   cat(
-  #   crayon::green(expectation)
-  #   )
-  # }else{
-  #   cat(crayon::red(expectation))
-  #   }
-  # cat("\n")
   }
 
 

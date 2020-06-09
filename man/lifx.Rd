@@ -3,11 +3,11 @@
 \docType{package}
 \name{lifx}
 \alias{lifx}
-\title{lifx: A package for controlling LIFX smart bulbs}
+\title{LIFX': A package for controlling 'LIFX' smart bulbs}
 \description{
-The lifx R package is an interface to the [lifx smart bulb api](https://api.developer.lifx.com/docs).
+The 'LIFX' R package is an interface to the ['LIFX' smart bulb api](https://api.developer.lifx.com/docs).
 }
-\section{most important lifx functions}{
+\section{most important 'LIFX' functions}{
 
 \itemize{
  \item{ \code{\link{lx_save_token}}}

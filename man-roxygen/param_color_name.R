@@ -1,1 +1,1 @@
-#' @param color_name a color name (i.e. "red"), hexadecimal color code (i.e. "#FF0000") or output from lx_color() (in lifx api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.
+#' @param color_name a color name (i.e. "red"), hexadecimal color code (i.e. "#FF0000") or output from lx_color() (in 'LIFX' api format (see \url{https://api.developer.lifx.com/docs/colors}). If this parameter is used, other parameters may be ignored.

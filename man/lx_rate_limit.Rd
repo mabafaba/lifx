@@ -2,7 +2,7 @@
 % Please edit documentation in R/rate_limit.R
 \name{lx_rate_limit}
 \alias{lx_rate_limit}
-\title{get lifx API rate limit}
+\title{get 'LIFX' API rate limit}
 \usage{
 lx_rate_limit(token = lx_get_token())
 }
@@ -17,5 +17,8 @@ a named vector of three numbers:
 3. `reset`: the Unix timestamp for when the next window begins. Usually every minute.
 }
 \description{
-get lifx API rate limit
+get 'LIFX' API rate limit
+}
+\examples{
+\dontrun{lx_rate_limit()}
 }

@@ -7,7 +7,7 @@
 lx_PUT(selector = "all", endpoint, token, ...)
 }
 \arguments{
-\item{selector}{lifx api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
+\item{selector}{'LIFX' api "selector" such as "all", "id:12345", or "location:kitchen". Can be created with \code{\link{lx_selector}} or written manually (see \url{https://api.developer.lifx.com/docs/selectors}}
 
 \item{endpoint}{the API endpoint to call; basically the last part of the API url after the light selector}
 
@@ -16,7 +16,7 @@ lx_PUT(selector = "all", endpoint, token, ...)
 \item{...}{named values to add to the request body}
 }
 \value{
-an httr response object (see \code{\link[httr]{response}})
+an 'httr' response object (see \code{\link[httr]{response}})
 }
 \description{
 PUT request

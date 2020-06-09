@@ -9,6 +9,11 @@
 #' @param peak Defines where in a period the target color is at its maximum. Minimum 0.0, maximum 1.0.
 #' @template param_selector
 #' @template param_token
+#' @examples
+#' \dontrun{
+#' lx_effect_breathe(color = "red",from_color = "blue",period = 3,cycles = 5,power_on = TRUE)
+#' }
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_breathe<-function(
   color,
@@ -44,9 +49,13 @@ lx_effect_breathe<-function(
 #' @param cycles The number of times to move the pattern across the device. Special cases are 0 to switch the effect off, and unspecified to continue near indefinitely (10^10 times).
 #' @param power_on Switch any selected device that is off to on before performing the effect.
 #' @template param_fast
-#'
 #' @template param_token
 #' @template param_selector
+#' @examples
+#' \dontrun{
+#' lx_effect_move(direction = "backward", period = 2, cycles = 5)
+#' }
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_move<-function(
   direction = "forward",
@@ -81,6 +90,17 @@ lx_effect_move<-function(
 #' @template param_fast
 #' @template param_selector
 #' @template param_token
+#' @examples
+#' \dontrun{
+#' lx_effect_morph(period = 2, palette = c("red", "blue"))
+#  lx_effect_morph(
+#   palette = c(
+#     lx_color_name(hue=50,brightness = 0.5),
+#     lx_color_name(hue=100,brightness = 0.1)
+#   )
+# )
+#' }
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_morph<-function(
   period = 5,
@@ -106,7 +126,7 @@ lx_effect_morph<-function(
 
 
 
-#' "Morph" effect
+#' "Flame" effect
 #'
 #' @param period This controls how quickly the flame runs. It is measured in seconds. A lower number means the animation is faster
 #' @param duration How long the animation lasts for in seconds. Not specifying a duration makes the animation never stop. Specifying 0 makes the animation stop. Note that there is a known bug where the tile remains in the animation once it has completed if duration is nonzero.
@@ -114,6 +134,11 @@ lx_effect_morph<-function(
 #' @template param_fast
 #' @template param_selector
 #' @template param_token
+#' @examples
+#' \dontrun{
+#' lx_effect_flame(period = 2, duration = 3)
+#' }
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_flame<-function(
   period = 5,
@@ -145,6 +170,11 @@ lx_effect_flame<-function(
 #' @param power_on If FALSE, does not turn light on if it is off
 #' @template param_selector
 #' @template param_token
+#' @examples
+#' \dontrun{
+#' lx_effect_pulse(color = "red",from_color = "blue", period = 3,cycles = 5, persist = TRUE)
+#' }
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_pulse<-function(
   color,
@@ -177,6 +207,8 @@ lx_effect_pulse<-function(
 #' @param power_off If TRUE, also turns the light(s) off
 #' @template param_selector
 #' @template param_token
+#' @examples \dontrun{lx_effect_off()}
+#' @return an 'httr' response object (see \code{\link[httr]{response}})
 #' @export
 lx_effect_off<-function(
   power_off = FALSE,

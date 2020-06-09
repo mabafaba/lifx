@@ -1,9 +1,12 @@
 #' retrieve lifx_token from R environment
 #'
 #' @template details_token
-#' @return the lifx api token found in environmental variables
+#' @return the 'LIFX' api token found in environmental variables
 #' @seealso \code{\link{lx_has_token}}, \code{\link{lx_save_token}}
-#'
+#' @examples
+#' \dontrun{
+#' lx_get_token()
+#' }
 lx_get_token <- function() {
     token <- Sys.getenv("LIFX_TOKEN")
     if (identical(token, "")) {
@@ -18,6 +21,10 @@ lx_get_token <- function() {
 #' @template param_token
 #' @seealso \code{\link{lx_has_token}}, \code{\link{lx_get_token}}
 #' @return logical TRUE if saving token has been successful
+#' @examples
+#' \dontrun{
+#' lx_save_token("asodfjawea9499fao8u4a09fw0s8fu439wfrsud7") # put your token here
+#' }
 #' @export
 lx_save_token <- function(token) {
     assertthat::assert_that(assertthat::is.string(token))
@@ -29,7 +36,8 @@ lx_save_token <- function(token) {
 #' @template details_token
 #' @seealso \code{\link{lx_save_token}}, \code{\link{lx_get_token}}
 #' @return logical TRUE if a token was found
-#'@export
+#' @examples lx_has_token()
+#' @export
 lx_has_token <- function() {
     Sys.getenv("LIFX_TOKEN") != ""
 }
