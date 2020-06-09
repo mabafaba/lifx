@@ -1,3 +1,14 @@
+## Resubmission
+- Put non-English API name in *undirected* single quotes in title and description
+- Fixed punctuation in DESCRIPTION description so that only names, sentence beginnings and
+abbreviations/acronyms are capitalised
+- added api link to DESCRIPTION file in the requested format
+- added examples to all exported functions. Most functions require an API token, therefore are wrapped in \dontrun{}
+- added 'value' documentation to all functions except print methods
+- simplified return object of lx_list_lights() with more detailed description of the structure & content of the returned object
+- removed print()/cat() from all functions (except in print methods and their non-exported helper functions that are only used within the print methods themselves).
+- lx_get_token() and lx_has_token() do not accept any arguments, therefore there are no \arguments Rd-tags
+
 ## Test environments
 * R 3.5.1, local OS X install
 * R 3.6.3, local OS X install 
@@ -7,26 +18,16 @@
 * win-builder (devel & release)
 
 ## R CMD check results
-* This is my *first submission*
+* This is my *first submission* (resubmitting after review)
 * There were *no ERRORs, WARNINGs or NOTEs* (except the "new submission" Note)
-* There was a message about possibly mis-spelled words in DESCRIPTION (LIFX (7:58), Lifx (3:17, 8:18)) which are spelled correctly.
 
 
 ## Downstream dependencies
 * There are currently *no downstream dependencies* for this package
 
 
-## Resubmission: changes
-- Put non-English API name in *undirected* single quotes in title and description
-- Fixed punctuation to only capitalize names, sentence beginnings and
-abbreviations/acronyms in description
-- added api link to DESCRIPTION file in the requested format
-- added examples to all exported functions. Most functions require an API token, therefore are wrapped in \\dontrun{}
-- added 'value' documentation to all functions except print methods
-- lx_get_token() and lx_has_token() does not accept any arguments, therefore there are no \arguments Rd-tags
-- removed print()/cat() from all functions (except in print methods and their non-exported helper functions. I moved the helper functions to print methods inside the print methods themselves to make their use only within the print method explicit.
 
-## previous CRAN review comments
+## Previous submission CRAN review comments as recieved:
 
 "Please always write non-English usage, package names, software names and
 API names in *undirected* single quotes in title and description in the
