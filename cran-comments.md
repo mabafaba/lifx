@@ -1,11 +1,12 @@
 ## Resubmission
+- Thank you for the feedback.
 - Put non-English API name in *undirected* single quotes in title and description
 - Fixed punctuation in DESCRIPTION description so that only names, sentence beginnings and
 abbreviations/acronyms are capitalised
 - added api link to DESCRIPTION file in the requested format
 - added examples to all exported functions. Most functions require an API token, therefore are wrapped in \dontrun{}
 - added 'value' documentation to all functions except print methods
-- simplified return object of lx_list_lights() with more detailed description of the structure & content of the returned object
+- simplified return object of lx_list_lights() with more detailed description of the structure & content of the returned object.
 - removed print()/cat() from all functions (except in print methods and their non-exported helper functions that are only used within the print methods themselves).
 - lx_get_token() and lx_has_token() do not accept any arguments, therefore there are no \arguments Rd-tags
 
@@ -24,8 +25,6 @@ abbreviations/acronyms are capitalised
 
 ## Downstream dependencies
 * There are currently *no downstream dependencies* for this package
-
-
 
 ## Previous submission CRAN review comments as recieved:
 
