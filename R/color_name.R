@@ -11,17 +11,17 @@
 #'
 #' \dontrun{
 #'
-#' strong_red <- lx_color_name(hue = 0, saturation = 1, brightness = 1, check = FALSE)
+#' strong_red <- lx_color_name(hue = 0, saturation = 1, brightness = 1)
 #' lx_color(color_name = strong_red)
 #'
 #' dim_green <- lx_color_name(color_name = "#00FF00", saturation = 1, brightness = 0.1)
 #' lx_color(color_name = dim_green)
 #'
-#' unsaturated_cyan <- lx_color_name(color_name = "cyan", saturation = 0.3, check = FALSE)
+#' unsaturated_cyan <- lx_color_name(color_name = "cyan", saturation = 0.3)
 #' lx_color(color_name = unsaturated_cyan)
 #' }
 #'
-#' @return a character string specifiying a light color as expected by the 'LIFX' API. Outpus from this function have their own class and printing style, but a pure character string can be used just as well.
+#' @return a character string specifying a light color as expected by the 'LIFX' API. Outputs from this function have their own class and printing style, but a pure character string can be used just as well.
 #' @export
 lx_color_name <- function(hue = NULL, saturation = NULL, brightness = NULL, kelvin = NULL, color_name = NULL, check = TRUE, token = lx_get_token()) {
 
@@ -69,7 +69,7 @@ print.lx_color_string <- function(x, ...) {
 #' lx_check_color("orange") # valid 'LIFX' color string returns TRUE
 #' lx_check_color('brightness:1 hue:50') # valid 'LIFX' color string returns TRUE
 #' }
-#' @return logical TRUE if the color name is valid; FALSE if not; throws an error if the API could not be reached or another issue occured.
+#' @return logical TRUE if the color name is valid; FALSE if not; throws an error if the API could not be reached or another issue occurred.
 #' @export
 lx_check_color <- function(color_name,  token = lx_get_token()) {
   url <- paste0("https://api.lifx.com/v1/color?string=", utils::URLencode(color_name))

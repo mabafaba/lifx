@@ -10,8 +10,5 @@
 #' @export
 lx_rate_limit <- function(token = lx_get_token()) {
     light_list <- lx_list_lights(token = token)
-
-    limits <- c(limit = as.numeric(light_list$headers$`x-ratelimit-limit`), remaining = as.numeric(light_list$headers$`x-ratelimit-remaining`),
-        reset = as.numeric(light_list$headers$`x-ratelimit-reset`))
-    limits
+    attr(light_list,which = "rate_limits")
 }

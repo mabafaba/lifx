@@ -30,7 +30,7 @@ lx_color_name(
 \item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
-a character string specifiying a light color as expected by the 'LIFX' API. Outpus from this function have their own class and printing style, but a pure character string can be used just as well.
+a character string specifying a light color as expected by the 'LIFX' API. Outputs from this function have their own class and printing style, but a pure character string can be used just as well.
 }
 \description{
 picking a color by name or hsbk
@@ -39,13 +39,13 @@ picking a color by name or hsbk
 
 \dontrun{
 
-strong_red <- lx_color_name(hue = 0, saturation = 1, brightness = 1, check = FALSE)
+strong_red <- lx_color_name(hue = 0, saturation = 1, brightness = 1)
 lx_color(color_name = strong_red)
 
 dim_green <- lx_color_name(color_name = "#00FF00", saturation = 1, brightness = 0.1)
 lx_color(color_name = dim_green)
 
-unsaturated_cyan <- lx_color_name(color_name = "cyan", saturation = 0.3, check = FALSE)
+unsaturated_cyan <- lx_color_name(color_name = "cyan", saturation = 0.3)
 lx_color(color_name = unsaturated_cyan)
 }
 

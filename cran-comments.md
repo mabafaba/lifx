@@ -1,5 +1,43 @@
 ## Resubmission
-- Thank you for the feedback.
+Thank you for your time & feedback.
+
+Last recieved feedback:
+
+1. There was an unexported function with example.
+
+  - The function is now exported
+
+2. Most functions' examples were set to "dontrun{}". It was recommended to let them run or to add unit tests.
+
+  - Most functions require an API key in order to run examples and tests. For those, I have done the following:
+  - \dontrun{} examples
+  - unit test are now available, but they are skipped if no token is available (with testthat::skip()).
+  - Here is a list of all functions and how their examples / tests are handled now:
+    - Examples run;  added unit tests:
+        - lx_selector
+    - Examples require api key, therefore keeping dontrun, but added unit tests:
+        - lx_color_name
+        - lx_get_token
+    - Examples run. Function too simple for meaningful unit tests (single line of code):
+        - lx_has_token
+    - Examples require api token, therefore dontrun; unit tests exist but are skipped unless an api key is available:
+        - lx_check_color    
+        - lx_color        
+        - lx_toggle
+        - lx_effect_breathe
+        - lx_effect_flame  
+        - lx_effect_morph   
+        - lx_effect_move   
+        - lx_effect_off    
+        - lx_effect_pulse   
+        - lx_list_lights
+        - lx_rate_limit
+    - Examples would change/overwrite a environmental variable, therefore dontrun. Too simple for meaningful unit tests:
+        - lx_save_token
+
+
+
+## Previous Resubmissions: 
 - Put non-English API name in *undirected* single quotes in title and description
 - Fixed punctuation in DESCRIPTION description so that only names, sentence beginnings and
 abbreviations/acronyms are capitalised
@@ -28,6 +66,7 @@ abbreviations/acronyms are capitalised
 
 ## Previous submission CRAN review comments as recieved:
 
+### First submission 
 "Please always write non-English usage, package names, software names and
 API names in *undirected* single quotes in title and description in the
 DESCRIPTION file.

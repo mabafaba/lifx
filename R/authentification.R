@@ -7,6 +7,7 @@
 #' \dontrun{
 #' lx_get_token()
 #' }
+#' @export
 lx_get_token <- function() {
     token <- Sys.getenv("LIFX_TOKEN")
     if (identical(token, "")) {

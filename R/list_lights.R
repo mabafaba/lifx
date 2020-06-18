@@ -31,5 +31,9 @@
 #' @export
 lx_list_lights <- function(selector = "all", token = lx_get_token()) {
     list <- lx_GET(selector = selector, endpoint = "", token = token)
+    rate_limits <- c(limit = as.numeric(list$headers$`x-ratelimit-limit`), remaining = as.numeric(list$headers$`x-ratelimit-remaining`),
+                     reset = as.numeric(list$headers$`x-ratelimit-reset`))
     list <- httr::content(list)
+    attributes(list)<-list("rate_limits" = rate_limits)
+    list
 }

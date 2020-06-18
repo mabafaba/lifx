@@ -12,7 +12,7 @@ lx_check_color(color_name, token = lx_get_token())
 \item{token}{API token (see ?lx_save_token). If left empty, the token is retrieved from the environmental variable if available. (see \code{\link{lx_save_token}})}
 }
 \value{
-logical TRUE if the color name is valid; FALSE if not; throws an error if the API could not be reached or another issue occured.
+logical TRUE if the color name is valid; FALSE if not; throws an error if the API could not be reached or another issue occurred.
 }
 \description{
 check if 'LIFX' color name is valid
